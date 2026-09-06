@@ -1,6 +1,7 @@
 import argparse
 import sys
 from .camera.controller import CameraController
+from .tui.app import CameraApp
 
 def main():
     parser = argparse.ArgumentParser(description="Nikon D60 Controller")
@@ -10,12 +11,18 @@ def main():
     parser.add_argument("--get", type=str, help="Get specific setting value")
     parser.add_argument("--set", nargs=2, metavar=("NAME", "VALUE"), help="Set specific setting value")
     parser.add_argument("--load-json", type=str, metavar="FILE", help="Load settings from a JSON file")
+    parser.add_argument("--tui", action="store_true", help="Launch the advanced Textual UI")
 
     args = parser.parse_args()
     
     if len(sys.argv) == 1:
         parser.print_help(sys.stderr)
         sys.exit(1)
+
+    if args.tui:
+        app = CameraApp()
+        app.run()
+        return
 
     controller = CameraController()
     
