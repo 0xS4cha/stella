@@ -1,4 +1,5 @@
 import os
+import json
 import gphoto2 as gp
 from .manager import CameraManager
 from .config import CameraConfig
@@ -35,3 +36,10 @@ class CameraController:
 
     def set_setting(self, name, value):
         self.config.set_parameter(name, value)
+
+    def load_settings_from_json(self, file_path):
+        with open(file_path, 'r') as f:
+            settings = json.load(f)
+            
+        for name, value in settings.items():
+            self.set_setting(name, value)
