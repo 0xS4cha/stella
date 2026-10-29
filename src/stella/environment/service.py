@@ -65,7 +65,7 @@ class EnvironmentService:
         lens: Lens | None = None,
         aperture: float | None = None,
     ) -> EnvironmentSnapshot:
-        when = when or datetime.now(timezone.utc)
+        when = (when or datetime.now(timezone.utc)).astimezone(timezone.utc)
         astronomy = self.astronomy.conditions(location, when)
         warnings = []
         weather = None

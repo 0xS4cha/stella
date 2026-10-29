@@ -130,4 +130,4 @@ class Astronomy:
 
 
 def _as_utc(when: datetime) -> datetime:
-    return when.replace(tzinfo=timezone.utc) if when.tzinfo is None else when.astimezone(timezone.utc)
+    return when.astimezone(timezone.utc)
