@@ -1,6 +1,6 @@
 from .background import BackgroundModel, estimate_background
 from .errors import AnalysisError
-from .frame import ExposureInfo, Frame, load_frame, read_exposure
+from .frame import ExposureInfo, Frame, load_frame, read_exposure, srgb_to_linear
 from .metrics import ImageMetrics, compute_metrics
 from .pipeline import AnalysisConfig, ImageAnalysis, analyze_image
 from .scoring import QualityScore, ScoringTargets, ScoringWeights, score
@@ -26,4 +26,5 @@ __all__ = [
     "load_frame",
     "read_exposure",
     "score",
+    "srgb_to_linear",
 ]
