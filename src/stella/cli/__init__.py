@@ -1,6 +1,7 @@
 import argparse
 import sys
 
+from ..analysis import AnalysisError
 from ..camera import CameraController, CameraError
 from .commands import COMMANDS
 
@@ -21,7 +22,7 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         with CameraController() as controller:
             args.handler(args, controller)
-    except (CameraError, OSError, ValueError) as error:
+    except (CameraError, AnalysisError, OSError, ValueError) as error:
         print(f"Error: {error}", file=sys.stderr)
         return 1
     except KeyboardInterrupt:

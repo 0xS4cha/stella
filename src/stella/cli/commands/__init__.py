@@ -1,3 +1,3 @@
-from . import capture, profile, settings
+from . import analyze, capture, profile, settings
 
-COMMANDS = (settings, profile, capture)
+COMMANDS = (settings, profile, capture, analyze)

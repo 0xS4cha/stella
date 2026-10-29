@@ -1,3 +1,4 @@
+import logging
 from dataclasses import asdict, dataclass
 from datetime import datetime
 from fractions import Fraction
@@ -14,6 +15,8 @@ from .errors import AnalysisError
 RAW_SUFFIXES = {".nef", ".nrw", ".cr2", ".cr3", ".arw", ".dng", ".raf", ".orf", ".rw2"}
 LUMINANCE_WEIGHTS = np.array([0.2126, 0.7152, 0.0722], dtype=np.float32)
 EXIF_DATETIME_FORMAT = "%Y:%m:%d %H:%M:%S"
+
+logging.getLogger("exifread").setLevel(logging.ERROR)
 
 
 @dataclass(frozen=True)
