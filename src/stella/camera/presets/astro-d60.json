@@ -1,0 +1,13 @@
+{
+  "name": "astro-d60",
+  "description": "Wide-field night sky baseline for the Nikon D60 in manual mode",
+  "requires": {
+    "expprogram": "M"
+  },
+  "settings": {
+    "imagequality": "NEF (Raw)",
+    "iso": "1600",
+    "shutterspeed": "30",
+    "whitebalance": "Daylight"
+  }
+}
