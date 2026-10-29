@@ -57,7 +57,7 @@ def detect_stars(data: np.ndarray, background: BackgroundModel, config: Detectio
         sources = sep.extract(residual, config.threshold, err=background.rms, minarea=config.min_area)
     except Exception as error:
         raise AnalysisError(f"Star extraction failed: {error}") from error
-    sources = sources[(sources["flag"] == 0) & (sources["b"] > 0)]
+    sources = sources[((sources["flag"] & ~sep.OBJ_MERGED) == 0) & (sources["b"] > 0)]
     fwhm = FWHM_FACTOR * np.sqrt(sources["a"] ** 2 + sources["b"] ** 2)
     elongation = sources["a"] / sources["b"]
     saturated = sources["peak"] + background.level >= config.saturation_level
