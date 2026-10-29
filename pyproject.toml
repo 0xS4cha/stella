@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.scripts]
-stella = "stella.__main__:main"
+stella = "stella.cli:main"
 
 [build-system]
 requires = ["hatchling"]
